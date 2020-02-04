@@ -16,6 +16,9 @@ RUN npm run build
 # No Need to specify default command for nginx automatcially started
 FROM nginx
 
+# For AWS Elastic Beanstalk(For local dev we need to do port mapping -p 8080:80)
+EXPOSE 80
+
 COPY --from=builder /app/build /usr/share/nginx/html
 
 
